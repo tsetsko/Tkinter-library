@@ -37,10 +37,10 @@ def delete(id):
     conn.commit()
     conn.close()
 
-def update(id, title, author,year, isbn):
+def update(id, title, author, year, isbn):
     conn = sqlite3.connect('books.db')
     cur = conn.cursor()
-    cur.execute('UPDATE book SET title = ?, author = ?, year = ?, isbn = ? WHERE id = ?', (id, title, year, isbn))
+    cur.execute('UPDATE book SET title = ?, author = ?, year = ?, isbn = ? WHERE id = ?', (title, author, year, isbn, id))
     conn.commit()
     conn.close()
 
@@ -48,7 +48,4 @@ def update(id, title, author,year, isbn):
 
 connect()
 
-# insert('Test Book2', 'Autor3', 2013, 666)
-# delete(2)
-# print(view())
-# print(search(isbn=555))
+update(10, 444, 555, 666, 777)
